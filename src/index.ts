@@ -1,1 +1,2 @@
-export const myPackage = (taco = ''): string => `${taco} from my package`;
+export { Injectable } from './injectable.decorator';
+export { Container } from './container';
