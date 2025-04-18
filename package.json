@@ -1,7 +1,7 @@
 {
   "name": "@beetlabs/stimpack",
   "version": "0.0.0-development",
-  "description": "A template for creating npm packages using TypeScript and VSCode",
+  "description": "Simple dependency injection for TypeScript and React",
   "main": "./lib/index.js",
   "files": [
     "lib/**/*"
@@ -24,8 +24,8 @@
   "license": "MIT",
   "author": {
     "name": "Beet Labs",
-    "email": "me@brennongs.dev",
-    "url": "https://github.com/beetlabs"
+    "email": "brennongs@users.noreply.github.com",
+    "url": "https://github.com/beetlabs/stimpack"
   },
   "engines": {
     "node": ">=20.0.0"
