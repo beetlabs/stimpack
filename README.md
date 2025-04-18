@@ -1,16 +1,14 @@
-# typescript-npm-package-template
+# Stimpack 💉
 
-> Template to kickstart creating a Node.js module using TypeScript and VSCode
-
-Inspired by [node-module-boilerplate](https://github.com/sindresorhus/node-module-boilerplate)
+> Simple dependency injection for TypeScript
 
 ## Features
 
 - [Semantic Release](https://github.com/semantic-release/semantic-release)
-- [Issue Templates](https://github.com/ryansonshine/typescript-npm-package-template/tree/main/.github/ISSUE_TEMPLATE)
-- [GitHub Actions](https://github.com/ryansonshine/typescript-npm-package-template/tree/main/.github/workflows)
+- [Issue Templates](https://github.com/beetlabs/stimpack/tree/main/.github/ISSUE_TEMPLATE)
+- [GitHub Actions](https://github.com/beetlabs/stimpack/tree/main/.github/workflows)
 - [Codecov](https://about.codecov.io/)
-- [VSCode Launch Configurations](https://github.com/ryansonshine/typescript-npm-package-template/blob/main/.vscode/launch.json)
+- [VSCode Launch Configurations](https://github.com/beetlabs/stimpack/blob/main/.vscode/launch.json)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Husky](https://github.com/typicode/husky)
 - [Lint Staged](https://github.com/okonet/lint-staged)
@@ -37,7 +35,7 @@ Replace `FULL_NAME`, `GITHUB_USER`, and `REPO_NAME` in the script below with you
 FULL_NAME="John Smith"
 GITHUB_USER="johnsmith"
 REPO_NAME="my-cool-package"
-sed -i.mybak "s/\([\/\"]\)(ryansonshine)/$GITHUB_USER/g; s/typescript-npm-package-template\|my-package-name/$REPO_NAME/g; s/Ryan Sonshine/$FULL_NAME/g" package.json package-lock.json README.md
+sed -i.mybak "s/\([\/\"]\)(ryansonshine)/$GITHUB_USER/g; s/typescript-npm-package-template\|my-package-name/$REPO_NAME/g; s/Beet Labs/$FULL_NAME/g" package.json package-lock.json README.md
 rm *.mybak
 ```
 
@@ -53,7 +51,7 @@ Enable the Codecov GitHub App [here](https://github.com/apps/codecov).
 
 ---
 
-# my-package-name
+# Stimpack 💉
 
 [![npm package][npm-img]][npm-url]
 [![Build Status][build-img]][build-url]
@@ -63,43 +61,21 @@ Enable the Codecov GitHub App [here](https://github.com/apps/codecov).
 [![Commitizen Friendly][commitizen-img]][commitizen-url]
 [![Semantic Release][semantic-release-img]][semantic-release-url]
 
-> My awesome module
+> Simple dependency injection for TypeScript
 
 ## Install
 
 ```bash
-npm install my-package-name
+npm install @beetlabs/stimpack
 ```
 
 ## Usage
 
 ```ts
-import { myPackage } from 'my-package-name';
-
-myPackage('hello');
-//=> 'hello from my package'
 ```
 
+
 ## API
-
-### myPackage(input, options?)
-
-#### input
-
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-Type: `object`
-
-##### postfix
-
-Type: `string`
-Default: `rainbows`
-
-Lorem ipsum.
 
 [build-img]:https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml/badge.svg
 [build-url]:https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml
