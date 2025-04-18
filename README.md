@@ -10,6 +10,8 @@
 
 > Simple dependency injection for TypeScript and React
 
+Dependency injection without the framework, and without `reflect-metadata`. Just pure TypeScript.
+
 ## Install
 
 ```bash
@@ -19,9 +21,66 @@ npm install @beetlabs/stimpack
 ## Usage
 
 ```ts
+import { Injectable } from '@beetlabs/stimpack'
+
+@Injectable()
+class Dependency {
+  test() {
+    console.log('yay')
+  }
+}
+
+const token = new Symbol();
+@Injectable({
+  token,
+  inject: [Dependency]
+})
+class Service {
+  constructor(
+    dependency: Dependency
+  ) {}
+
+  method() {
+    this.dependency.test() // typesafe
+  }
+}
 ```
 
 ## API
+
+### Injectable
+```ts
+function Injectable(options?: {
+  token?: symbol,
+  inject?: any[]
+})
+```
+This is where the magic happens. `Injectable` is a `ClassDecorator` which registers a service with the injection container. *Note that for now the `inject` array does need to match the order of the dependencies in the constructor:
+```ts
+@Injectable({
+  inject: [Dep2, Dep1]
+})
+class Service {
+  constructor(
+    dep1: Dep1,
+    dep2: Dep2
+  ) {}
+
+  test() {
+    dep1.someMethodOnDep1() // this will fail because we injected Dep2 first
+  }
+}
+```
+
+### Container
+```ts
+interface Container {
+  instance: Container;
+  register(service: any, token?: symbol): void;
+  resolve<T>(token?: any | symbol): T
+}
+```
+Most of the time you won't need to interact directly with `Container`, but in the case that you are extending this to use with a framework, it's here for you. `Container` is a singleton with a private constructor, so access it with `instance`. The other two methods do what they sound like.
 
 [build-img]:https://github.com/beetlabs/stimpack/actions/workflows/release.yml/badge.svg
 [build-url]:https://github.com/beetlabs/stimpack/actions/workflows/release.yml
