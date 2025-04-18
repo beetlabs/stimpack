@@ -45,6 +45,24 @@ class Service {
   }
 }
 ```
+In React:
+```tsx
+// App.tsx
+import { InjectionProvider } from '@beetlabs/stimpack/react'
+
+<InjectionProvider>
+  {/* ... the rest of your app */}
+</InjectionProvider>
+
+
+// SomeComponent.tsx
+import { useInjection } from '@beetlabs/stimpack/react'
+import { SomeService } from './some-injectable-service'
+
+export const Component = () => {
+  const service = useInjection(SomeService) // typesafe!
+}
+```
 
 ## API
 
@@ -81,6 +99,12 @@ interface Container {
 }
 ```
 Most of the time you won't need to interact directly with `Container`, but in the case that you are extending this to use with a framework, it's here for you. `Container` is a singleton with a private constructor, so access it with `instance`. The other two methods do what they sound like.
+
+### useInjection
+```ts
+useInjection<T>(token: any | symbol): T 
+```
+Exposes `Container#resolve` to React!
 
 [build-img]:https://github.com/beetlabs/stimpack/actions/workflows/release.yml/badge.svg
 [build-url]:https://github.com/beetlabs/stimpack/actions/workflows/release.yml
