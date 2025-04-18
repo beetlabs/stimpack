@@ -17,6 +17,9 @@
     "test": "jest --coverage",
     "typecheck": "tsc --noEmit"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/beetlabs/stimpack.git"
