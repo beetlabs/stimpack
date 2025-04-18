@@ -15,7 +15,7 @@ export class Container extends Map<Token, Constructable> {
       this[INSTANCE] = new this();
     }
 
-    return this[INSTANCE];
+    return this[INSTANCE]!;
   }
 
   public register(service: Constructable, token?: symbol): void {
